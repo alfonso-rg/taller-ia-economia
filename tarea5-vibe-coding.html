@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 5: Vibe Coding — Taller IA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="img/logo-white.png" alt="Facultad de Economía y Empresa — UMU">
+    </a>
+    <span class="navbar-title">Taller Práctico de IA</span>
+    <div class="navbar-links">
+      <a href="tarea1-deep-research.html">1. Deep Research</a>
+      <a href="tarea2-notebooklm.html">2. NotebookLM</a>
+      <a href="tarea3-chatbot.html">3. Chatbot</a>
+      <a href="tarea4-web-interactiva.html">4. Web interactiva</a>
+      <a href="tarea5-vibe-coding.html" class="active">5. Vibe Coding</a>
+      <a href="tarea6-api.html">6. API</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> &rsaquo; Tarea 5</div>
+    <h1>Vibe Coding con Claude Code o Codex</h1>
+    <div class="page-meta">
+      <span>&#9733;&#9733;&#9733; Nivel avanzado</span>
+      <span>&#128337; ~45 minutos</span>
+      <span>&#128187; Claude Code · Codex · GitHub · Netlify</span>
+    </div>
+  </div>
+</header>
+
+<!-- Content -->
+<main class="guide-content">
+
+  <h2>&#127919; ¿Qué es el Vibe Coding?</h2>
+  <p>
+    <strong>Vibe Coding</strong> es un nuevo paradigma de programación donde tú describes lo que quieres
+    en lenguaje natural y la IA escribe, modifica y ejecuta el código directamente en tu ordenador.
+    A diferencia de los artefactos/lienzos (Tarea 4), aquí la IA <strong>maneja archivos reales</strong>
+    y puede crear proyectos completos con múltiples archivos, bases de datos y despliegues.
+  </p>
+
+  <div class="info-box note">
+    <strong>&#128221; El diseño fundamental ha cambiado</strong>
+    Antes, programar significaba escribir código línea a línea. Ahora, herramientas como Claude Code y Codex
+    permiten que la IA lea, cree y modifique archivos directamente en tu proyecto. Tú diriges, la IA implementa.
+  </div>
+
+  <h2>&#128204; Herramientas disponibles</h2>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Herramienta</th>
+        <th>Proveedor</th>
+        <th>Características</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Claude Code</strong></td>
+        <td>Anthropic</td>
+        <td>Terminal con acceso completo al sistema de archivos. Muy potente para proyectos complejos</td>
+      </tr>
+      <tr>
+        <td><strong>Codex</strong></td>
+        <td>OpenAI</td>
+        <td>Integrado en ChatGPT, accesible temporalmente para cuentas gratuitas. Ejecuta en la nube, trabaja sobre repositorios GitHub</td>
+      </tr>
+      <tr>
+        <td><strong>Antigravity</strong></td>
+        <td>Google</td>
+        <td>Equivalente de Google, integrado en el ecosistema Gemini</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>&#128640; Guía paso a paso</h2>
+
+  <!-- Paso 1 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">1</span>
+      <h4>Crea un repositorio en GitHub</h4>
+    </div>
+    <p>
+      Lo primero es crear un repositorio donde vivirá nuestro proyecto. GitHub es la plataforma estándar
+      para almacenar código.
+    </p>
+    <ol>
+      <li>Ve a <strong>github.com</strong> e inicia sesión (o crea una cuenta si no tienes)</li>
+      <li>Haz clic en el botón <strong>«+»</strong> (arriba a la derecha) → <strong>«New repository»</strong></li>
+      <li>Ponle un nombre descriptivo, por ejemplo: <code>taller-ia-economia</code></li>
+      <li>Marca <strong>«Public»</strong> (así podremos desplegarlo luego)</li>
+      <li>Marca <strong>«Add a README file»</strong></li>
+      <li>Haz clic en <strong>«Create repository»</strong></li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t5-p1-github-nuevo-repo.png" alt="Creación de repositorio en GitHub">
+      <figcaption>GitHub — creación de nuevo repositorio</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 2 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">2</span>
+      <h4>Conecta la herramienta de vibe coding</h4>
+    </div>
+    <p>
+      Dependiendo de la herramienta que uses:
+    </p>
+
+    <h3>Opción A: Codex (ChatGPT)</h3>
+    <ol>
+      <li>En ChatGPT, busca la opción <strong>«Codex»</strong> en el menú</li>
+      <li>Conecta tu cuenta de GitHub cuando te lo pida</li>
+      <li>Selecciona el repositorio que acabas de crear</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t5-p2a-codex-repo-vinculado.png" alt="Codex conectando al repositorio de GitHub">
+      <figcaption>ChatGPT Codex — interfaz vinculando el repositorio de GitHub</figcaption>
+    </figure>
+
+    <h3>Opción B: Claude Code</h3>
+    <ol>
+      <li>Abre un terminal en tu ordenador</li>
+      <li>Clona el repositorio: <code>git clone https://github.com/tu-usuario/taller-ia-economia</code></li>
+      <li>Entra en la carpeta: <code>cd taller-ia-economia</code></li>
+      <li>Lanza Claude Code: <code>claude</code></li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t5-p2b-claude-code-terminal.png" alt="Claude Code ejecutándose en el terminal">
+      <figcaption>Claude Code — terminal listo para recibir instrucciones en lenguaje natural</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 3 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">3</span>
+      <h4>Pide la construcción del sitio web desde cero</h4>
+    </div>
+    <p>
+      Ahora viene lo interesante. Describe lo que quieres construir:
+    </p>
+
+    <div class="code-block">
+Quiero crear un sitio web sobre economía española.
+El sitio debe tener:
+
+1. Una página principal con un diseño atractivo
+2. Una sección con datos del PIB, desempleo e
+   inflación de España (últimos 20 años)
+3. Gráficos interactivos con esos datos
+4. Una sección de preguntas frecuentes sobre
+   la economía española
+5. Un formulario de contacto simple
+
+Usa HTML, CSS y JavaScript.
+Diseño moderno y responsive.
+    </div>
+
+    <p>
+      La IA creará múltiples archivos: <code>index.html</code>, <code>style.css</code>,
+      <code>script.js</code>, y posiblemente una carpeta <code>data/</code> con los datos.
+    </p>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t5-p3-ia-creando-archivos.png" alt="La IA creando los archivos del proyecto">
+      <figcaption>Vibe coding — la IA genera la estructura de archivos y escribe código del proyecto</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 4 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">4</span>
+      <h4>Añade una base de datos e interactividad avanzada</h4>
+    </div>
+    <p>
+      Podemos ir más allá y añadir datos reales. Pide a la IA que incorpore una base de datos:
+    </p>
+
+    <div class="code-block">
+Ahora quiero que añadas datos reales. Crea un archivo
+JSON con datos económicos de España (PIB, desempleo,
+inflación) desde 2005 hasta 2025. Haz que los gráficos
+lean de ese archivo.
+
+Además, añade:
+- Un comparador que permita seleccionar dos indicadores
+  y verlos superpuestos en un gráfico
+- Una tabla de datos que se pueda ordenar y filtrar
+- Un buscador por año
+    </div>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t5-p4-web-graficos.png" alt="Sitio web con gráficos interactivos y tabla de datos">
+      <figcaption>Resultado — sitio web generado con gráficos interactivos y tabla de datos económicos</figcaption>
+    </figure>
+
+    <div class="info-box tip">
+      <strong>&#128161; Itera con libertad</strong>
+      El poder del vibe coding es que puedes seguir pidiendo cosas: «cambia los colores», «añade una página
+      de metodología», «haz que la tabla se exporte a CSV», etc. La IA modificará directamente los archivos.
+    </div>
+  </div>
+
+  <!-- Paso 5 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">5</span>
+      <h4>Sube los cambios a GitHub</h4>
+    </div>
+    <p>
+      Una vez satisfecho con el resultado, sube el código al repositorio.
+    </p>
+
+    <h3>Con Codex</h3>
+    <p>Codex crea automáticamente un <em>pull request</em> (solicitud de extracción) en tu repositorio. Solo tienes que revisarlo
+    y aceptarlo en GitHub.</p>
+
+    <h3>Con Claude Code</h3>
+    <p>Pide a Claude Code que suba los cambios:</p>
+
+    <div class="code-block">
+Sube todos los cambios al repositorio de GitHub con
+un mensaje de commit descriptivo.
+    </div>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t5-p5-github-repo-archivos.png" alt="Repositorio en GitHub con los archivos del proyecto">
+      <figcaption>GitHub — repositorio con los archivos del proyecto subidos por la IA</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 6 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">6</span>
+      <h4>Despliega en Netlify</h4>
+    </div>
+    <p>
+      Para que tu web sea accesible en internet, la desplegamos en <strong>Netlify</strong>, un servicio
+      gratuito de hosting.
+    </p>
+    <ol>
+      <li>Ve a <strong>netlify.app</strong> y crea una cuenta (puedes usar tu cuenta de GitHub)</li>
+      <li>Haz clic en <strong>«Add new site»</strong> → <strong>«Import an existing project»</strong></li>
+      <li>Selecciona <strong>GitHub</strong> como proveedor</li>
+      <li>Busca y selecciona tu repositorio <code>taller-ia-economia</code></li>
+      <li>Deja la configuración por defecto y haz clic en <strong>«Deploy»</strong></li>
+      <li>En unos segundos, tendrás una URL pública para tu sitio</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t5-p6-netlify-importar-repo.png" alt="Despliegue en Netlify — importar repositorio de GitHub">
+      <figcaption>Netlify — proceso de importar el repositorio de GitHub para el despliegue</figcaption>
+    </figure>
+
+    <figure class="screenshot-img">
+      <a href="https://tallerecon.netlify.app/"><img src="capturas/t5-p6-netlify-web-desplegada.png" alt="Sitio web desplegado y accesible en Netlify"></a>
+      <figcaption>Netlify — URL pública del sitio web generado, accesible en internet</figcaption>
+    </figure>
+
+    <div class="info-box tip">
+      <strong>&#128161; Despliegue automático</strong>
+      Netlify se conecta a tu repositorio de GitHub. Cada vez que subas cambios, el sitio se actualiza
+      automáticamente. Esto es muy conveniente para iterar.
+    </div>
+  </div>
+
+  <h2>&#128173; Conceptos clave</h2>
+
+  <div class="info-box note">
+    <strong>&#128221; ¿Qué ha cambiado?</strong>
+    <ul>
+      <li><strong>Antes</strong>: aprendes a programar → escribes código → ejecutas → corriges errores</li>
+      <li><strong>Ahora</strong>: describes lo que quieres → la IA programa → tú revisas y diriges</li>
+      <li>El nuevo paradigma: la IA <strong>maneja archivos directamente</strong>, no solo sugiere código</li>
+      <li>Tu rol cambia de «programador» a «director de proyecto»</li>
+    </ul>
+  </div>
+
+  <div class="info-box warning">
+    <strong>&#9888;&#65039; Consideraciones</strong>
+    <ul>
+      <li>Claude Code requiere una suscripción de pago o API credits</li>
+      <li>Codex suele requerir ChatGPT de pago, ahora mismo usable gratuitamente</li>
+      <li>Es recomendable tener nociones básicas de lo que es HTML/CSS para poder guiar mejor, pero no necesario</li>
+      <li>Revisa siempre el código generado antes de desplegarlo en producción</li>
+    </ul>
+  </div>
+
+  <!-- Navigation -->
+  <div class="task-nav">
+    <a href="tarea4-web-interactiva.html">&larr; Anterior: Web interactiva</a>
+    <a href="tarea6-api.html">Siguiente: API &rarr;</a>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <p><strong>Alfonso Rosa García</strong> · Facultad de Economía y Empresa · Universidad de Murcia</p>
+  <p>alfonso.rosa@um.es · Seminario de Economía Aplicada · 23 de febrero de 2026</p>
+</footer>
+
+</body>
+</html>

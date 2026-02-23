@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 3: Chatbot asistente — Taller IA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="img/logo-white.png" alt="Facultad de Economía y Empresa — UMU">
+    </a>
+    <span class="navbar-title">Taller Práctico de IA</span>
+    <div class="navbar-links">
+      <a href="tarea1-deep-research.html">1. Deep Research</a>
+      <a href="tarea2-notebooklm.html">2. NotebookLM</a>
+      <a href="tarea3-chatbot.html" class="active">3. Chatbot</a>
+      <a href="tarea4-web-interactiva.html">4. Web interactiva</a>
+      <a href="tarea5-vibe-coding.html">5. Vibe Coding</a>
+      <a href="tarea6-api.html">6. API</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> &rsaquo; Tarea 3</div>
+    <h1>Crear un chatbot asistente de clase</h1>
+    <div class="page-meta">
+      <span>&#9733;&#9733; Nivel intermedio</span>
+      <span>&#128337; ~45 minutos</span>
+      <span>&#128187; Copilot M365 · GPTs · Gems</span>
+    </div>
+  </div>
+</header>
+
+<!-- Content -->
+<main class="guide-content">
+
+  <h2>&#127919; ¿Qué es un chatbot personalizado?</h2>
+  <p>
+    Un chatbot personalizado es una IA a la que le das <strong>instrucciones específicas y materiales</strong>
+    para que actúe como un experto en un tema concreto. Es como «programar» la personalidad y el conocimiento
+    de una IA sin necesidad de escribir código.
+  </p>
+  <p>
+    Los primeros en popularizar esto fueron los <strong>GPTs personalizados</strong> de OpenAI. Hoy están
+    disponibles de forma gratuita como <strong>Gems</strong> en Gemini y como <strong>agentes</strong> en
+    Copilot M365.
+  </p>
+
+  <div class="info-box tip">
+    <strong>&#128161; ¿Por qué Copilot M365?</strong>
+    Aunque GPTs y Gems tienen más funcionalidades avanzadas, Copilot M365 tiene una ventaja clave:
+    <strong>es la herramienta institucional de la UMU</strong>. Esto significa que nuestros alumnos tienen
+    acceso gratuito a modelos potentes a través de la licencia universitaria, lo que la hace ideal
+    para uso docente.
+  </div>
+
+  <h2>&#128640; Guía paso a paso: Chatbot en Copilot M365</h2>
+
+  <!-- Paso 1 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">1</span>
+      <h4>Accede a Copilot M365</h4>
+    </div>
+    <p>
+      Ve a las aplicaciones m365 tras iniciar sesión con tu cuenta UMU (@um.es).
+      Asegúrate de que estás en el entorno de trabajo (Work), no en el personal.
+    </p>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t3-p1-copilot-inicio.png" alt="Acceso a Copilot M365 con cuenta UMU desde Webmail">
+      <figcaption>Acceso Copilot M365 — Desde Webmail</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 2 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">2</span>
+      <h4>Crea un nuevo agente</h4>
+    </div>
+    <p>
+      Busca la opción de crear un nuevo <strong>agente</strong> o <strong>Copilot personalizado</strong>.
+    </p>
+    <ol>
+      <li>En el panel lateral o menú superior, busca <strong>«Agentes»</strong> o <strong>«Copilot Studio»</strong></li>
+      <li>Haz clic en <strong>«Crear agente»</strong> o <strong>«Nuevo»</strong></li>
+      <li>Se abrirá el editor de configuración del agente</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t3-p2-copilot-crear-agente.png" alt="Botón de crear agente en Copilot">
+      <figcaption>Copilot M365 — dónde encontrar la opción de creación de agentes</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 3 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">3</span>
+      <h4>Define el rol y las instrucciones del tutor</h4>
+    </div>
+    <p>
+      Esta es la parte más importante. Escribe instrucciones claras que definan el comportamiento del chatbot.
+      Aquí tienes un ejemplo para un tutor de Economía Española:
+    </p>
+
+    <div class="code-block">
+<span class="comment"># Ejemplo de instrucciones para el agente</span>
+
+Eres el tutor virtual de la asignatura "Economía Española"
+del Grado en Economía de la Universidad de Murcia.
+
+<span class="keyword">Tu rol:</span>
+- Ayudas a los estudiantes a comprender los conceptos
+  del programa de la asignatura
+- Respondes dudas sobre el temario de forma clara y
+  pedagógica
+- Cuando un alumno pregunta sobre un ejercicio, NO das
+  la respuesta directamente: le guías paso a paso
+  (método socrático)
+
+<span class="keyword">Tu tono:</span>
+- Cercano pero profesional
+- Adaptado a estudiantes universitarios
+- Siempre animas al alumno a razonar por sí mismo
+
+<span class="keyword">Limitaciones:</span>
+- Solo respondes sobre temas del programa
+- Si te preguntan algo fuera del temario, sugiere
+  amablemente que consulten con el profesor
+- No generas trabajos completos ni resuelves exámenes
+    </div>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t3-p3-copilot-instrucciones.png" alt="Campo de instrucciones del agente en Copilot">
+      <figcaption>Copilot M365 — editor de instrucciones del agente tutor</figcaption>
+    </figure>
+
+    <div class="info-box tip">
+      <strong>&#128161; Clave: el método socrático</strong>
+      Instruye al chatbot para que no dé respuestas directas a los ejercicios. En su lugar, que haga
+      preguntas que guíen al alumno: «¿Qué variable crees que afecta más? ¿Por qué?». Esto convierte
+      al chatbot en un verdadero tutor, no en una máquina de copiar.
+    </div>
+  </div>
+
+  <!-- Paso 4 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">4</span>
+      <h4>Sube materiales del curso</h4>
+    </div>
+    <p>
+      Importante: ChatGPT y Gemini te permitirán subir documentos del curso para que el chatbot tenga contexto específico:
+    </p>
+    <ul>
+      <li>El programa de la asignatura</li>
+      <li>Apuntes o transparencias de cada tema</li>
+      <li>Bibliografía recomendada (resúmenes)</li>
+      <li>Ejemplos de ejercicios resueltos</li>
+    </ul>
+    <p>
+      Copilot solo permite añadir fuentes web. Es una limitación enorme frente a ChatGPT o Gemini.
+    </p>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t3-p4-copilot-documentos.png" alt="Documentos web para el agente en Copilot">
+      <figcaption>Copilot M365 — panel de carga de documentos de referencia para el agente</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 5 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">5</span>
+      <h4>Prueba el chatbot</h4>
+    </div>
+    <p>
+      Ahora pruébalo con preguntas reales que harían tus alumnos:
+    </p>
+    <ul>
+      <li>«¿Puedes explicarme qué es la convergencia económica?»</li>
+      <li>«¿Cuáles son las principales diferencias entre el modelo de Solow y el de crecimiento endógeno?»</li>
+      <li>«¿Qué entra en el examen del segundo parcial?»</li>
+    </ul>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t3-p5-copilot-conversacion.png" alt="Conversación de prueba con el chatbot tutor">
+      <figcaption>Copilot M365 — chatbot tutor respondiendo a una pregunta de alumno</figcaption>
+    </figure>
+
+    <p>
+      Comprueba que el chatbot:
+    </p>
+    <ul>
+      <li>Responde de forma pedagógica, no solo informativa</li>
+      <li>No da respuestas directas a ejercicios (usa preguntas guía)</li>
+      <li>Se ciñe al temario de la asignatura</li>
+      <li>Tiene un tono apropiado</li>
+    </ul>
+  </div>
+
+  <!-- Paso 6 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">6</span>
+      <h4>Itera y mejora las instrucciones</h4>
+    </div>
+    <p>
+      Basándote en las pruebas, ajusta las instrucciones. Algunos ajustes habituales:
+    </p>
+    <ul>
+      <li>Si da respuestas demasiado largas → añade «Sé conciso, máximo 3 párrafos»</li>
+      <li>Si es demasiado formal → ajusta el tono en las instrucciones</li>
+      <li>Si responde a temas fuera del programa → refuerza las limitaciones</li>
+      <li>Si no guía con preguntas → sé más explícito con el método socrático</li>
+    </ul>
+  </div>
+
+  <h2>&#128260; Alternativas: GPTs y Gems</h2>
+
+  <p>
+    Si quieres explorar más funcionalidades, prueba las alternativas:
+  </p>
+
+  <h3>GPTs personalizados (ChatGPT)</h3>
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">A</span>
+      <h4>Crear un GPT en ChatGPT</h4>
+    </div>
+    <p>
+      Los GPTs personalizados de ChatGPT ofrecen más opciones de personalización:
+    </p>
+    <ol>
+      <li>Ve a <strong>chatgpt.com</strong>, inicia sesión</li>
+      <li>En el menú superior, busca <strong>«GPTs»</strong> → <strong>«Crear»</strong></li>
+      <li>Puedes usar el modo de conversación (el propio GPT te guía para crearlo) o el modo manual</li>
+      <li>Sube archivos de conocimiento</li>
+      <li>Configura las acciones y el comportamiento</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t3-pA-gpts-editor.png" alt="Editor de GPTs personalizados en ChatGPT">
+      <figcaption>ChatGPT — editor de GPTs personalizados con las pestañas de configuración</figcaption>
+    </figure>
+
+    <div class="info-box note">
+      <strong>&#128221; Nota</strong>
+      Los GPTs personalizados están disponibles de forma gratuita desde 2025, aunque con algunas limitaciones
+      de uso respecto a la versión Plus. La creación sólo para cuentas de pago.
+    </div>
+  </div>
+
+  <h3>Gems (Gemini)</h3>
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">B</span>
+      <h4>Crear una Gem en Gemini</h4>
+    </div>
+    <p>
+      Las Gems de Gemini son el equivalente de Google:
+    </p>
+    <ol>
+      <li>Ve a <strong>gemini.google.com</strong></li>
+      <li>En el menú lateral, busca <strong>«Gems»</strong> → <strong>«Nueva Gem»</strong></li>
+      <li>Define las instrucciones y el comportamiento</li>
+      <li>Prueba y ajusta</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t3-pB-gemini-gem-editor.png" alt="Creación de una Gem en Gemini">
+      <figcaption>Gemini — acceso a la creación de nuevos Gems</figcaption>
+    </figure>
+  </div>
+
+  <h2>&#128173; Comparativa de plataformas</h2>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Característica</th>
+        <th>Copilot M365</th>
+        <th>GPTs (ChatGPT)</th>
+        <th>Gems (Gemini)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Coste para alumnos UMU</strong></td>
+        <td>Gratuito (licencia UMU)</td>
+        <td>Gratuito (limitado)</td>
+        <td>Gratuito (limitado)</td>
+      </tr>
+      <tr>
+        <td><strong>Modelos disponibles</strong></td>
+        <td>GPT-4o / GPT-5.2</td>
+        <td>GPT-4o / GPT-5.2</td>
+        <td>Gemini 3 Pro / Flash</td>
+      </tr>
+      <tr>
+        <td><strong>Subida de documentos</strong></td>
+        <td>Limitada</td>
+        <td>Sí, muy flexible</td>
+        <td>Sí, muy flexible</td>
+      </tr>
+      <tr>
+        <td><strong>Compartir con alumnos</strong></td>
+        <td>Elegibles usuarios concretos de la UMU o toda la institución</td>
+        <td>Enlace público</td>
+        <td>Enlace público</td>
+      </tr>
+      <tr>
+        <td><strong>Protección de datos</strong></td>
+        <td>Datos en tenant UMU (RGPD)</td>
+        <td>Datos en servidores OpenAI</td>
+        <td>Datos en servidores Google</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box important">
+    <strong>&#128274; Protección de datos</strong>
+    La ventaja principal de Copilot M365 es que los datos se quedan dentro del tenant de la universidad,
+    cumpliendo con el RGPD. Para datos sensibles de alumnos, es la opción más segura. GPTs y Gems son
+    adecuados para uso general sin datos personales.
+  </div>
+
+  <!-- Navigation -->
+  <div class="task-nav">
+    <a href="tarea2-notebooklm.html">&larr; Anterior: NotebookLM</a>
+    <a href="tarea4-web-interactiva.html">Siguiente: Web interactiva &rarr;</a>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <p><strong>Alfonso Rosa García</strong> · Facultad de Economía y Empresa · Universidad de Murcia</p>
+  <p>alfonso.rosa@um.es · Seminario de Economía Aplicada · 23 de febrero de 2026</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 4: Web interactiva — Taller IA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="img/logo-white.png" alt="Facultad de Economía y Empresa — UMU">
+    </a>
+    <span class="navbar-title">Taller Práctico de IA</span>
+    <div class="navbar-links">
+      <a href="tarea1-deep-research.html">1. Deep Research</a>
+      <a href="tarea2-notebooklm.html">2. NotebookLM</a>
+      <a href="tarea3-chatbot.html">3. Chatbot</a>
+      <a href="tarea4-web-interactiva.html" class="active">4. Web interactiva</a>
+      <a href="tarea5-vibe-coding.html">5. Vibe Coding</a>
+      <a href="tarea6-api.html">6. API</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> &rsaquo; Tarea 4</div>
+    <h1>Crear una web interactiva con lienzos / artefactos</h1>
+    <div class="page-meta">
+      <span>&#9733;&#9733; Nivel intermedio</span>
+      <span>&#128337; ~45 minutos</span>
+      <span>&#128187; Claude Artifacts · ChatGPT Canvas</span>
+    </div>
+  </div>
+</header>
+
+<!-- Content -->
+<main class="guide-content">
+
+  <h2>&#127919; ¿Qué son los lienzos / artefactos?</h2>
+  <p>
+    Los <strong>lienzo o canvas</strong> (ChatGPT y Gemini) y <strong>artefactos</strong> (Claude) son funcionalidades que permiten visualizar vistas previas de trabajos en curso, y compartirlas. Esto implica que podemos generar <strong>aplicaciones web funcionales</strong> directamente desde el chat. La IA escribe código
+    HTML, CSS y JavaScript que se ejecuta en el navegador, creando páginas interactivas sin que tú necesites
+    programar.
+  </p>
+  <p>
+    En esta actividad, crearemos paso a paso una <strong>web usable sobre historia económica española</strong>
+    con lecciones informativas y preguntas interactivas.
+  </p>
+
+  <div class="info-box tip">
+    <strong>&#128161; ¿Por qué es útil?</strong>
+    <ul>
+      <li>Puedes crear materiales docentes interactivos en minutos</li>
+      <li>No necesitas saber HTML ni programar</li>
+      <li>El resultado es una página web funcional que puedes compartir</li>
+      <li>Puedes iterar sobre el resultado pidiendo cambios en lenguaje natural</li>
+    </ul>
+  </div>
+
+  <h2>&#128640; Guía paso a paso</h2>
+
+  <!-- Paso 1 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">1</span>
+      <h4>Accede a Claude o ChatGPT</h4>
+    </div>
+    <p>
+      Vamos a usar <strong>ChatGPT</strong> (claude.ai) como herramienta principal, ya que es la herramienta más standard. También se puede hacer muy similar con Gemini y con Claude (fue quien lo inventó, ahí se llaman "artefactos".
+    </p>
+    <ol>
+      <li>Ve a <strong>chagpt.com</strong> e inicia sesión</li>
+      <li>Inicia una nueva conversación</li>
+      <li>Selecciona lienzo/canvas en el menú +</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t4-p1-claude-inicio.png" alt="Interfaz de ChatGPT con conversación nueva">
+      <figcaption>ChatGPT — pantalla de inicio lista para una nueva conversación con lienzo activo</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 2 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">2</span>
+      <h4>Describe la web que quieres crear</h4>
+    </div>
+    <p>
+      Escribe un prompt detallado describiendo lo que necesitas. Cuanto más específico seas, mejor será
+      el resultado. Aquí tienes un ejemplo:
+    </p>
+
+    <div class="code-block">
+Crea una página web interactiva sobre la historia
+económica de España en el siglo XX. Debe incluir:
+
+1. Una cabecera atractiva con el título del tema
+2. Una línea temporal interactiva con los hitos
+   económicos más importantes (autarquía, plan de
+   estabilización, desarrollismo, crisis del petróleo,
+   entrada en la CEE, burbuja inmobiliaria, crisis 2008)
+3. Para cada hito, un texto explicativo breve que
+   aparezca al hacer clic
+4. Al final, un quiz de 5 preguntas tipo test sobre
+   el contenido, con feedback inmediato al responder
+5. Un diseño limpio y profesional, adecuado para
+   estudiantes universitarios
+
+Usa colores sobrios (azul oscuro, blanco, rojo como
+acento). Que sea responsive para móvil.
+    </div>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t4-p2-claude-prompt.png" alt="Prompt enviado a ChatGPT para crear la web interactiva">
+      <figcaption>ChatGPT — prompt enviado en el chat para generar la web interactiva</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 3 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">3</span>
+      <h4>Revisa la aplicación generada</h4>
+    </div>
+    <p>
+      ChatGPT generará un aplicación con la web completa. Irá programando y podrás ver la vista previa e iterar en un menú lateral.
+    </p>
+    <ul>
+      <li><strong>Vista previa</strong>: verás la web funcionando directamente en el panel</li>
+      <li><strong>Interactividad</strong>: puedes hacer clic en los elementos, responder el quiz, etc.</li>
+      <li><strong>Código</strong>: puedes ver el código HTML/CSS/JS generado</li>
+    </ul>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t4-p3-claude-artefacto-preview.png" alt="Aplicación generada por ChatGPT — vista previa de la web">
+      <figcaption>ChatGPT — panel lateral con la web interactiva generada y funcionando</figcaption>
+    </figure>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t4-p3-claude-linea-temporal.png" alt="La línea temporal interactiva en funcionamiento">
+      <figcaption>Línea temporal interactiva — hito expandido mostrando su texto explicativo</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 4 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">4</span>
+      <h4>Itera pidiendo mejoras</h4>
+    </div>
+    <p>
+      La magia de los artefactos es que puedes pedir cambios en lenguaje natural y la IA actualizará
+      la web. Prueba peticiones como:
+    </p>
+    <ul>
+      <li>«Añade una sección con datos del PIB per cápita en cada período»</li>
+      <li>«Pon gráficos de barras con la evolución del PIB»</li>
+      <li>«Añade 5 preguntas más al quiz»</li>
+      <li>«Cambia los colores a los de la Universidad de Murcia (teal oscuro y rojo)»</li>
+      <li>«Añade una sección de conclusiones al final»</li>
+      <li>«Haz que las preguntas se mezclen aleatoriamente cada vez que se carga la página»</li>
+    </ul>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t4-p4-claude-iteracion.png" alt="Iteración — pidiendo mejoras a la aplicación en ChatGPT">
+      <figcaption>Claude — chat con petición de mejora y artefacto actualizado en tiempo real</figcaption>
+    </figure>
+
+    <div class="info-box tip">
+      <strong>&#128161; Consejo para iterar</strong>
+      Haz cambios incrementales. Es más efectivo pedir una cosa a la vez que intentar cambiar todo
+      de golpe. Si algo no sale bien, puedes decir «deshaz el último cambio» o «vuelve a la versión anterior».
+    </div>
+  </div>
+
+  <!-- Paso 5 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">5</span>
+      <h4>Descarga o comparte la web</h4>
+    </div>
+    <p>
+      Cuando estés satisfecho con el resultado, puedes:
+    </p>
+    <ol>
+      <li><strong>Compartir el resultado</strong>: haz clic en el botón de compartir superior</li>
+      <li><strong>Configurar el enlace</strong>: puedes elegir que la aplicación sea accesible o solo para tu cuenta</li>
+      <li><strong>Compartir el enlace</strong>: al configurarlo accesible, cualquiera puede entrar a una web donde se accede a la vista previa (desde ese enlace no se accede al chat con el que hemos generado la app web)</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t4-p5-claude-exportar.png" alt="Opciones de descarga y compartir del artefacto en Claude">
+      <figcaption>ChatGPT — botones de compartir el lienzo generado</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 6 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">6</span>
+      <h4>Experimenta con otras ideas</h4>
+    </div>
+    <p>
+      Si te queda tiempo, prueba a crear otros tipos de contenido interactivo:
+    </p>
+    <ul>
+      <li><strong>Simulador de convergencia económica</strong>: con sliders para ajustar parámetros</li>
+      <li><strong>Dashboard de indicadores</strong>: gráficos interactivos con datos del INE/Eurostat</li>
+      <li><strong>Comparador de políticas</strong>: selecciona países y compara indicadores</li>
+      <li><strong>Flashcards</strong>: tarjetas de repaso con conceptos del temario</li>
+      <li><strong>Mapa interactivo</strong>: indicadores por comunidad autónoma</li>
+    </ul>
+  </div>
+
+  <h2>&#128173; Ideas de prompts para economistas</h2>
+
+  <div class="info-box tip">
+    <strong>&#128161; Prompts que funcionan bien</strong>
+    <ul>
+      <li>«Crea un simulador visual de oferta y demanda donde pueda arrastrar las curvas»</li>
+      <li>«Haz una calculadora interactiva del multiplicador keynesiano con explicaciones paso a paso»</li>
+      <li>«Crea un juego de matching donde los estudiantes emparejen economistas con sus teorías principales»</li>
+      <li>«Genera un dashboard con gráficos de la evolución de la deuda pública española desde 1990»</li>
+      <li>«Crea un quiz de 20 preguntas sobre macroeconomía básica con puntuación final y explicaciones»</li>
+    </ul>
+  </div>
+
+  <div class="info-box warning">
+    <strong>&#9888;&#65039; Verificación de datos</strong>
+    Recuerda que la IA puede inventar datos concretos (fechas, cifras exactas). Si vas a usar la web
+    con estudiantes, verifica los datos que incluya. Es buena idea proporcionarle tú los datos en el prompt
+    en lugar de dejar que los invente.
+  </div>
+
+  <!-- Navigation -->
+  <div class="task-nav">
+    <a href="tarea3-chatbot.html">&larr; Anterior: Chatbot</a>
+    <a href="tarea5-vibe-coding.html">Siguiente: Vibe Coding &rarr;</a>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <p><strong>Alfonso Rosa García</strong> · Facultad de Economía y Empresa · Universidad de Murcia</p>
+  <p>alfonso.rosa@um.es · Seminario de Economía Aplicada · 23 de febrero de 2026</p>
+</footer>
+
+</body>
+</html>

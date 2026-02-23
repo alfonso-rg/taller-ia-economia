@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 2: NotebookLM — Taller IA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="img/logo-white.png" alt="Facultad de Economía y Empresa — UMU">
+    </a>
+    <span class="navbar-title">Taller Práctico de IA</span>
+    <div class="navbar-links">
+      <a href="tarea1-deep-research.html">1. Deep Research</a>
+      <a href="tarea2-notebooklm.html" class="active">2. NotebookLM</a>
+      <a href="tarea3-chatbot.html">3. Chatbot</a>
+      <a href="tarea4-web-interactiva.html">4. Web interactiva</a>
+      <a href="tarea5-vibe-coding.html">5. Vibe Coding</a>
+      <a href="tarea6-api.html">6. API</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> &rsaquo; Tarea 2</div>
+    <h1>Profundizar en un tema con NotebookLM</h1>
+    <div class="page-meta">
+      <span>&#9733; Nivel básico</span>
+      <span>&#128337; ~45 minutos</span>
+      <span>&#128187; notebooklm.google.com</span>
+    </div>
+  </div>
+</header>
+
+<!-- Content -->
+<main class="guide-content">
+
+  <h2>&#127919; ¿Qué es NotebookLM?</h2>
+  <p>
+    NotebookLM es una herramienta gratuita de Google que te permite crear una <strong>base de conocimiento interactiva</strong>
+    a partir de tus propios documentos. Subes PDFs, páginas web, vídeos de YouTube o textos, y la IA te permite
+    interrogar esas fuentes, generar resúmenes, crear quizzes, mapas mentales, presentaciones e incluso
+    <strong>podcasts profesionales</strong> generados por IA.
+  </p>
+
+  <div class="info-box tip">
+    <strong>&#128161; ¿Por qué NotebookLM?</strong>
+    <ul>
+      <li><strong>Gratuito</strong> y sin límites relevantes para uso académico</li>
+      <li><strong>No alucina</strong>: solo responde con lo que hay en tus documentos</li>
+      <li><strong>Cita siempre sus fuentes</strong>: puedes verificar cada afirmación</li>
+      <li><strong>Podcasts sorprendentemente buenos</strong>: genera conversaciones de audio profesionales</li>
+      <li>Muchos estudiantes ya lo usan como <strong>espacio de trabajo de clase</strong></li>
+    </ul>
+  </div>
+
+  <h2>&#128640; Guía paso a paso</h2>
+
+  <!-- Paso 1 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">1</span>
+      <h4>Accede a NotebookLM</h4>
+    </div>
+    <p>
+      Ve a <strong>notebooklm.google.com</strong> e inicia sesión con tu cuenta de Google.
+      Si es tu primera vez, verás una pantalla de bienvenida. Haz clic en <strong>«Crear notebook»</strong>
+      (o «New Notebook»).
+    </p>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t2-p1-notebooklm-inicio.png" alt="Pantalla de inicio de NotebookLM">
+      <figcaption>Pantalla de inicio de NotebookLM — interfaz principal con el botón de crear nuevo notebook</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 2 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">2</span>
+      <h4>Agrega fuentes a tu notebook</h4>
+    </div>
+    <p>
+      NotebookLM acepta varios tipos de fuentes. Sube al menos 3-5 para obtener resultados ricos:
+    </p>
+
+    <h3>Tipos de fuentes disponibles</h3>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Cómo agregarlo</th>
+          <th>Uso recomendado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>PDF</strong></td>
+          <td>Arrastra el archivo o usa el botón «Upload»</td>
+          <td>Artículos académicos, informes, capítulos de libro</td>
+        </tr>
+        <tr>
+          <td><strong>Página web</strong></td>
+          <td>Pega la URL en el campo de «Website»</td>
+          <td>Artículos de prensa, posts de blog, datos de organismos</td>
+        </tr>
+        <tr>
+          <td><strong>Vídeo de YouTube</strong></td>
+          <td>Pega la URL del vídeo</td>
+          <td>Conferencias, charlas TED, tutoriales</td>
+        </tr>
+        <tr>
+          <td><strong>Google Docs</strong></td>
+          <td>Selecciona desde Google Drive</td>
+          <td>Tus propios apuntes, borradores</td>
+        </tr>
+        <tr>
+          <td><strong>Texto copiado</strong></td>
+          <td>Pega directamente en «Copied text»</td>
+          <td>Fragmentos de textos, notas rápidas</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t2-p2-notebooklm-fuentes.png" alt="Panel de agregar fuentes en NotebookLM">
+      <figcaption>Panel de agregar fuentes en NotebookLM — distintos tipos de fuentes disponibles</figcaption>
+    </figure>
+
+    <div class="info-box note">
+      <strong>&#128221; Sugerencia</strong>
+      Para esta práctica, puedes subir 3-5 artículos de tu área de investigación, o usar temas de una
+      asignatura que impartas. También puedes mezclar tipos: un par de PDFs, una web y un vídeo de YouTube
+      relacionados con el mismo tema.
+    </div>
+  </div>
+
+  <!-- Paso 3 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">3</span>
+      <h4>Explora el chat: pregunta sobre tus fuentes</h4>
+    </div>
+    <p>
+      Una vez cargadas las fuentes, usa el chat para interrogarlas. NotebookLM responderá <strong>solo con
+      información de tus documentos</strong> y citará la fuente exacta. Prueba con preguntas como:
+    </p>
+    <ul>
+      <li>«¿Cuáles son las principales conclusiones de cada artículo?»</li>
+      <li>«Compara las metodologías utilizadas en estos papers»</li>
+      <li>«¿Qué gaps de investigación se identifican?»</li>
+      <li>«Resume los puntos de acuerdo y desacuerdo entre los autores»</li>
+      <li>«¿Qué datos empíricos aporta cada fuente?»</li>
+    </ul>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t2-p3-notebooklm-chat-citas.png" alt="Chat de NotebookLM respondiendo con citas">
+      <figcaption>Chat de NotebookLM — respuesta con referencias numeradas a las fuentes</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 4 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">4</span>
+      <h4>Genera un podcast de audio o un vídeo explicativo</h4>
+    </div>
+    <p>
+      Esta es una de las funciones más sorprendentes de NotebookLM. Genera un podcast con dos voces
+      que discuten el contenido de tus fuentes de forma natural y profesional, o un vídeo donde se explica el contenido con diapositivas.
+    </p>
+    <ol>
+      <li>Busca la sección <strong>«Resumen de audio»</strong> y <strong>«Resumen de vídeo»</strong> en el panel de herramientas</li>
+      <li>Haz clic en <strong>«Generarar»</strong></li>
+      <li>Espera unos minutos mientras se genera el audio o el vídeo</li>
+      <li>Escucha el resultado: dos «presentadores» discuten tu tema</li>
+      <li>Ve la presentación: las diapositivas llevan una explicación sincronizada</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t2-p4-notebooklm-podcast.png" alt="Generación de Audio Overview (podcast) en NotebookLM">
+      <figcaption>Generación de audio (podcast) o vídeo — botón de generar y reproductor de audio resultante</figcaption>
+    </figure>
+
+    <div class="info-box tip">
+      <strong>&#128161; Personalización del podcast</strong>
+      Puedes personalizar el podcast antes de generarlo: indicar en qué aspectos quieres que se centre,
+      el nivel de detalle, o incluso el tono de la conversación. Prueba a añadir instrucciones como
+      «Céntrate en las implicaciones de política económica» o «Explícalo para estudiantes de primer curso».
+    </div>
+  </div>
+
+  <!-- Paso 5 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">5</span>
+      <h4>Crea un quiz interactivo</h4>
+    </div>
+    <p>
+      NotebookLM puede generar cuestionarios basados en tus fuentes. Ideal para autoevaluación o para
+      preparar materiales de clase.
+    </p>
+    <ol>
+      <li>En el panel de herramientas, busca la opción de <strong>«Quiz»</strong></li>
+      <li>Selecciona las fuentes sobre las que quieres el quiz</li>
+      <li>El sistema generará preguntas con respuestas verificables</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t2-p5-notebooklm-quiz.png" alt="Quiz generado por NotebookLM">
+      <figcaption>Quiz generado por NotebookLM — preguntas tipo test a partir de las fuentes</figcaption>
+    </figure>
+  </div>
+
+  <!-- Paso 6 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">6</span>
+      <h4>Genera un mapa mental o presentación</h4>
+    </div>
+    <p>
+      Explora las demás herramientas de generación de NotebookLM:
+    </p>
+    <ul>
+      <li><strong>Mapa mental</strong>: visualiza las relaciones entre conceptos de tus fuentes</li>
+      <li><strong>Presentación</strong>: genera slides con los puntos clave</li>
+      <li><strong>Resumen estructurado</strong>: tabla de contenidos del conocimiento en tus fuentes</li>
+      <li><strong>Línea temporal</strong>: si tus fuentes tienen contenido cronológico</li>
+    </ul>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t2-p6-notebooklm-mapa-mental.png" alt="Mapa mental generado por NotebookLM">
+      <figcaption>Mapa mental generado por NotebookLM — mapa conceptual visual con los temas de las fuentes</figcaption>
+    </figure>
+  </div>
+
+  <h2>&#128173; Ideas de uso para docencia</h2>
+
+  <div class="info-box tip">
+    <strong>&#128161; NotebookLM como espacio de trabajo de clase</strong>
+    <ul>
+      <li>Crea un notebook con las lecturas obligatorias de tu asignatura</li>
+      <li>Los estudiantes pueden interrogar los textos para preparar clases</li>
+      <li>Genera podcasts como material complementario para cada tema</li>
+      <li>Crea quizzes de autoevaluación para cada bloque temático</li>
+      <li>Úsalo como base para debates: «¿en qué no están de acuerdo estos autores?»</li>
+    </ul>
+  </div>
+
+  <div class="info-box warning">
+    <strong>&#9888;&#65039; Limitaciones</strong>
+    NotebookLM solo trabaja con las fuentes que le proporcionas. No accede a internet ni a información
+    externa. Esto es una ventaja (no alucina) pero también una limitación: la calidad depende de las
+    fuentes que subas.
+  </div>
+
+  <!-- Navigation -->
+  <div class="task-nav">
+    <a href="tarea1-deep-research.html">&larr; Anterior: Deep Research</a>
+    <a href="tarea3-chatbot.html">Siguiente: Chatbot &rarr;</a>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <p><strong>Alfonso Rosa García</strong> · Facultad de Economía y Empresa · Universidad de Murcia</p>
+  <p>alfonso.rosa@um.es · Seminario de Economía Aplicada · 23 de febrero de 2026</p>
+</footer>
+
+</body>
+</html>

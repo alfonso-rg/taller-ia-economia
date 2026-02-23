@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 6: App web con la API — Taller IA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="img/logo-white.png" alt="Facultad de Economía y Empresa — UMU">
+    </a>
+    <span class="navbar-title">Taller Práctico de IA</span>
+    <div class="navbar-links">
+      <a href="tarea1-deep-research.html">1. Deep Research</a>
+      <a href="tarea2-notebooklm.html">2. NotebookLM</a>
+      <a href="tarea3-chatbot.html">3. Chatbot</a>
+      <a href="tarea4-web-interactiva.html">4. Web interactiva</a>
+      <a href="tarea5-vibe-coding.html">5. Vibe Coding</a>
+      <a href="tarea6-api.html" class="active">6. API</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> &rsaquo; Tarea 6</div>
+    <h1>Crear una app web con la API de IA</h1>
+    <div class="page-meta">
+      <span>&#9733;&#9733;&#9733; Nivel avanzado</span>
+      <span>&#128337; ~45 minutos</span>
+      <span>&#128187; Python · Flask · OpenAI API · Render</span>
+    </div>
+  </div>
+</header>
+
+<!-- Content -->
+<main class="guide-content">
+
+  <h2>&#127919; ¿Qué vamos a construir?</h2>
+  <p>
+    En esta tarea construiremos una <strong>aplicación web real con backend Python</strong> que se conecta
+    directamente a la API de OpenAI. La aplicación tendrá dos herramientas:
+  </p>
+  <ul>
+    <li>&#128172; <strong>Chatbot de economía</strong>: un asistente conversacional con memoria de la sesión,
+      configurable con instrucciones de sistema propias.</li>
+    <li>&#128200; <strong>Analizador de sentimientos</strong>: introduce un texto o sube un archivo CSV
+      con frases, y la IA clasifica cada una como positiva, negativa o neutra con nivel de confianza.</li>
+  </ul>
+  <p>
+    El código lo generará la IA mediante <strong>vibe coding</strong> (Tarea 5). Nosotros describimos,
+    ella programa. Al final, lo desplegaremos en <strong>Render.com</strong> para tener una URL pública.
+  </p>
+
+  <div class="info-box tip">
+    <strong>&#128161; ¿Por qué una app con backend?</strong>
+    Las llamadas a la API de OpenAI requieren una <strong>clave secreta</strong> que nunca puede
+    quedar expuesta en el navegador. Necesitamos un servidor Python (Flask) que haga las llamadas
+    de forma segura y devuelva los resultados al navegador del usuario.
+  </div>
+
+  <h2>&#128204; Modelos disponibles y costes</h2>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Modelo</th>
+        <th>Proveedor</th>
+        <th>Coste aprox. (por millón de tokens)</th>
+        <th>Mejor para</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>GPT-4o mini</strong></td>
+        <td>OpenAI</td>
+        <td>~0.15 $ (entrada) / ~0.60 $ (salida)</td>
+        <td>Tareas cotidianas, muy barato — <em>el que usaremos</em></td>
+      </tr>
+      <tr>
+        <td><strong>GPT-4o</strong></td>
+        <td>OpenAI</td>
+        <td>~2.50 $ / ~10 $</td>
+        <td>Mayor calidad de respuesta</td>
+      </tr>
+      <tr>
+        <td><strong>GPT-4.1</strong></td>
+        <td>OpenAI</td>
+        <td>~2 $ / ~8 $</td>
+        <td>Lo más avanzado disponible</td>
+      </tr>
+      <tr>
+        <td><strong>Claude 3.5 Haiku</strong></td>
+        <td>Anthropic</td>
+        <td>~0.80 $ / ~4 $</td>
+        <td>Rápido y económico</td>
+      </tr>
+      <tr>
+        <td><strong>Claude Opus 4</strong></td>
+        <td>Anthropic</td>
+        <td>~15 $ / ~75 $</td>
+        <td>Máxima calidad</td>
+      </tr>
+      <tr>
+        <td><strong>Gemini 2.5 Flash</strong></td>
+        <td>Google</td>
+        <td>~0.15 $ / ~0.60 $</td>
+        <td>Muy barato, alta velocidad</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box note">
+    <strong>&#128221; ¿Qué son los tokens?</strong>
+    Los tokens son las unidades de texto que procesa la IA. Aproximadamente, 1 token ≈ 4 caracteres en español.
+    Un texto de 1000 palabras ≈ 1300 tokens. Con 5 € en GPT-4o mini puedes procesar millones de palabras.
+  </div>
+
+  <h2>&#128640; Guía paso a paso</h2>
+
+  <h3>Parte A: Obtener la API key</h3>
+
+  <!-- Paso 1 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">1</span>
+      <h4>Obtén una API key de OpenAI y carga crédito</h4>
+    </div>
+    <p>
+      Ve a <strong>platform.openai.com</strong>, crea una cuenta (o inicia sesión) y sigue estos pasos:
+    </p>
+    <ol>
+      <li>En el menú de la izquierda, ve a <strong>«API keys»</strong></li>
+      <li>Haz clic en <strong>«Create new secret key»</strong></li>
+      <li>Ponle un nombre descriptivo (ej. <em>taller-umu</em>) y copia la clave generada</li>
+      <li>Guárdala en un sitio seguro: <strong>solo se muestra una vez</strong></li>
+      <li>Ve a <strong>«Billing»</strong> → <strong>«Add payment method»</strong> y añade ~5 € de crédito</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t6-p1-openai-api-keys.png" alt="Panel de API keys en platform.openai.com">
+      <figcaption>OpenAI Platform — panel de API keys con el botón de crear nueva clave</figcaption>
+    </figure>
+
+    <div class="info-box warning">
+      <strong>&#9888;&#65039; Seguridad de la API key</strong>
+      La API key es como una contraseña. Nunca la compartas, nunca la subas a GitHub,
+      nunca la pegues en el código fuente. La gestionaremos como variable de entorno en Render,
+      fuera del repositorio.
+    </div>
+  </div>
+
+
+  <h3>Parte B: Crear el repositorio en GitHub</h3>
+
+  <!-- Paso 3 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">3</span>
+      <h4>Crea un repositorio GitHub para el proyecto</h4>
+    </div>
+    <p>
+      Render despliega directamente desde GitHub. Crea antes el repositorio que alojará el código:
+    </p>
+    <ol>
+      <li>Ve a <strong>github.com</strong> e inicia sesión</li>
+      <li>Haz clic en <strong>«+»</strong> → <strong>«New repository»</strong></li>
+      <li>Ponle el nombre <code>chatbot-economia-api</code></li>
+      <li>Márcalo como <strong>Public</strong> y activa <strong>«Add a README file»</strong></li>
+      <li>Haz clic en <strong>«Create repository»</strong></li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t6-p3-github-nuevo-repo.png" alt="Formulario de nuevo repositorio en GitHub para el proyecto de API">
+      <figcaption>GitHub — nuevo repositorio <code>chatbot-economia-api</code> listo para el proyecto</figcaption>
+    </figure>
+  </div>
+
+  <h3>Parte C: Vibe coding de la aplicación</h3>
+
+  <!-- Paso 4 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">4</span>
+      <h4>Genera la app completa con Claude Code o Codex</h4>
+    </div>
+    <p>
+      Usaremos vibe coding (como en la Tarea 5) para que la IA construya toda la aplicación.
+      Vincula Codex a tu repositorio o bien clona el repositorio en tu máquina, entra en la carpeta y lanza Claude Code.
+    <p>
+      Una vez dentro, dale este prompt completo a la IA:
+    </p>
+
+    <div class="code-block">
+Crea una aplicación web con Flask (Python) que tenga
+dos herramientas accesibles desde el navegador:
+
+--- HERRAMIENTA 1: CHATBOT ---
+Una interfaz de chat donde el usuario puede mantener
+una conversación con GPT-4o-mini configurado como
+experto en economía española. El chat debe:
+- Mostrar el historial de la conversación
+- Mantener el contexto entre mensajes (memoria)
+- Tener un botón para limpiar/reiniciar la conversación
+- Diseño de burbujas de chat moderno
+
+--- HERRAMIENTA 2: ANALIZADOR DE SENTIMIENTOS ---
+Una herramienta con dos modos de entrada:
+a) Campo de texto libre: el usuario escribe o pega
+   un texto y recibe: sentimiento (positivo/negativo/
+   neutro), nivel de confianza (%), y una breve
+   explicación del análisis.
+b) Carga de archivo CSV: el usuario sube un CSV
+   con una columna de frases. La app analiza cada
+   frase y devuelve una tabla con los resultados
+   (frase, sentimiento, confianza) que se puede
+   descargar como CSV.
+
+--- REQUISITOS TÉCNICOS ---
+- Backend: Flask (Python)
+- La API key de OpenAI se lee de la variable de
+  entorno OPENAI_API_KEY (nunca en el código)
+- Frontend: HTML/CSS/JavaScript puro, sin frameworks
+- Un archivo requirements.txt con las dependencias
+- Un archivo Procfile con: web: gunicorn app:app
+- Diseño limpio y profesional, colores corporativos
+  (teal oscuro #1B4F5C y rojo #C1272D como acento)
+- Navegación entre las dos herramientas
+    </div>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t6-p4-vibe-coding-app.png" alt="Claude Code generando la aplicación Flask">
+      <figcaption>Claude Code — generando los archivos de la aplicación Flask con chatbot y analizador</figcaption>
+    </figure>
+
+    <div class="info-box tip">
+      <strong>&#128161; Itera hasta que funcione</strong>
+      Una vez generado el código, pide a Claude Code que instale las dependencias y arranque el servidor
+      en local para comprobar que funciona: <code>pip install -r requirements.txt</code> y
+      <code>flask run</code>. Corrige cualquier problema antes de subir a GitHub.
+    </div>
+  </div>
+
+  <!-- Paso 5 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">5</span>
+      <h4>Prueba la app en local y sube el código a GitHub</h4>
+    </div>
+    <p>
+      Antes de desplegar, verifica que todo funciona correctamente en tu máquina:
+    </p>
+    <ol>
+      <li>Exporta tu API key como variable de entorno temporal:
+        <div class="code-block">
+<span class="comment"># En Windows (PowerShell):</span>
+$env:OPENAI_API_KEY = "sk-..."
+
+<span class="comment"># En Mac/Linux:</span>
+export OPENAI_API_KEY="sk-..."
+        </div>
+      </li>
+      <li>Arranca el servidor: <code>flask run</code> o <code>python app.py</code></li>
+      <li>Abre <strong>http://localhost:5000</strong> y prueba ambas herramientas</li>
+      <li>Si todo funciona, pide a Claude Code que haga el commit y lo suba a GitHub</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t6-p5-app-local.png" alt="Aplicación Flask funcionando en local con las dos herramientas">
+      <figcaption>App en local — chatbot y analizador de sentimientos funcionando en <code>localhost:5000</code></figcaption>
+    </figure>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t6-p5b-analizador-csv.png" alt="Analizador de sentimientos con subida de CSV">
+      <figcaption>Analizador de sentimientos — resultado de procesar un CSV con varias frases económicas</figcaption>
+    </figure>
+  </div>
+
+  <h3>Parte D: Despliegue en Render</h3>
+
+  <!-- Paso 6 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">6</span>
+      <h4>Crea un servicio web en Render</h4>
+    </div>
+    <p>
+      <strong>Render.com</strong> es un servicio de hosting gratuito que soporta Python/Flask
+      y se conecta directamente a GitHub para despliegue automático.
+    </p>
+    <ol>
+      <li>Ve a <strong>render.com</strong> y crea una cuenta (puedes usar tu cuenta de GitHub)</li>
+      <li>Haz clic en <strong>«New +»</strong> → <strong>«Web Service»</strong></li>
+      <li>Selecciona <strong>«Connect a repository»</strong> y elige <code>chatbot-economia-api</code></li>
+      <li>Configuración del servicio:
+        <ul>
+          <li><strong>Name:</strong> <code>chatbot-economia</code></li>
+          <li><strong>Runtime:</strong> <code>Python 3</code></li>
+          <li><strong>Build command:</strong> <code>pip install -r requirements.txt</code></li>
+          <li><strong>Start command:</strong> <code>gunicorn app:app</code></li>
+          <li><strong>Instance type:</strong> <code>Free</code></li>
+        </ul>
+      </li>
+      <li>Antes de desplegar, ve a <strong>«Environment»</strong> y añade la variable:
+        <ul>
+          <li>Key: <code>OPENAI_API_KEY</code> → Value: <em>tu clave de OpenAI</em></li>
+        </ul>
+      </li>
+      <li>Haz clic en <strong>«Create Web Service»</strong></li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t6-p6-render-configuracion.png" alt="Configuración del servicio web en Render">
+      <figcaption>Render.com — configuración del servicio con repositorio GitHub y variables de entorno</figcaption>
+    </figure>
+
+    <div class="info-box note">
+      <strong>&#128221; La variable de entorno es la clave</strong>
+      Al añadir <code>OPENAI_API_KEY</code> como variable de entorno en Render, el código Python
+      la leerá con <code>os.environ.get("OPENAI_API_KEY")</code> sin que aparezca nunca en el
+      repositorio de GitHub. Así la clave queda segura.
+    </div>
+  </div>
+
+  <!-- Paso 7 -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">7</span>
+      <h4>Verifica el despliegue y obtén la URL pública</h4>
+    </div>
+    <p>
+      Render tardará unos 2-3 minutos en construir y desplegar la aplicación. Puedes ver el progreso
+      en tiempo real en los logs de despliegue.
+    </p>
+    <ol>
+      <li>Cuando el estado cambie a <strong>«Live»</strong>, tu app está disponible</li>
+      <li>La URL tendrá la forma: <code>https://chatbot-economia.onrender.com</code></li>
+      <li>Prueba las dos herramientas desde el enlace público</li>
+      <li>Comparte la URL: cualquiera puede acceder sin instalar nada</li>
+    </ol>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t6-p7-render-desplegado.png" alt="Aplicación desplegada y accesible en Render">
+      <figcaption>Render.com — servicio con estado «Live» y URL pública disponible</figcaption>
+    </figure>
+
+    <figure class="screenshot-img">
+      <img src="capturas/t6-p7-app-desplegada.png" alt="Web del chatbot y analizador de sentimientos funcionando en Render">
+      <figcaption>Aplicación final desplegada — chatbot de economía y analizador de sentimientos con CSV accesibles en internet</figcaption>
+    </figure>
+
+    <div class="info-box tip">
+      <strong>&#128161; Despliegue automático</strong>
+      Render conecta con tu repositorio de GitHub. Cada vez que hagas un push de nuevos cambios,
+      Render redespliega la aplicación automáticamente. Puedes seguir iterando con Claude Code
+      y la web se actualiza sola.
+    </div>
+  </div>
+
+  <h2>&#128173; ¿Qué hemos conseguido?</h2>
+
+  <div class="info-box note">
+    <strong>&#128221; Recapitulación</strong>
+    <ul>
+      <li>Has obtenido acceso programático a un modelo de IA de última generación</li>
+      <li>Has construido un chatbot conversacional con memoria de sesión</li>
+      <li>Has construido un clasificador de sentimientos que procesa texto libre <em>y</em> archivos CSV en lote</li>
+      <li>Todo el código lo ha generado la IA mediante vibe coding</li>
+      <li>La aplicación está desplegada en internet con una URL pública y permanente</li>
+      <li>La API key está protegida como variable de entorno, nunca expuesta</li>
+    </ul>
+  </div>
+
+  <div class="info-box tip">
+    <strong>&#128161; Ideas para ampliar</strong>
+    <ul>
+      <li><strong>Procesamiento en lote</strong>: analiza cientos de artículos automáticamente</li>
+      <li><strong>Extracción de datos</strong>: extrae información estructurada de informes PDF</li>
+      <li><strong>Clasificación temática</strong>: categoriza artículos de prensa por tema económico</li>
+      <li><strong>Traducción académica</strong>: traduce abstracts manteniendo terminología técnica</li>
+      <li><strong>Resumen automático</strong>: resume datasets de texto para revisiones bibliográficas</li>
+    </ul>
+  </div>
+
+  <div class="info-box important">
+    <strong>&#128274; Buenas prácticas de seguridad</strong>
+    <ul>
+      <li>Nunca incluyas la API key directamente en el código que subas a GitHub</li>
+      <li>Usa siempre <strong>variables de entorno</strong> para las claves secretas</li>
+      <li>Configura un <strong>límite de gasto mensual</strong> en el panel de OpenAI</li>
+      <li>Revoca y regenera la clave si sospechas que ha quedado expuesta</li>
+    </ul>
+  </div>
+
+  <!-- Navigation -->
+  <div class="task-nav">
+    <a href="tarea5-vibe-coding.html">&larr; Anterior: Vibe Coding</a>
+    <a href="index.html">Volver al inicio &rarr;</a>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <p><strong>Alfonso Rosa García</strong> · Facultad de Economía y Empresa · Universidad de Murcia</p>
+  <p>alfonso.rosa@um.es · Seminario de Economía Aplicada · 23 de febrero de 2026</p>
+</footer>
+
+</body>
+</html>

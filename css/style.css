@@ -1,0 +1,719 @@
+/* ============================================================
+   Uso Académico de la IA — Taller Práctico
+   Facultad de Economía y Empresa — Universidad de Murcia
+   Paleta de colores corporativa UMU
+   ============================================================ */
+
+/* --- Variables CSS --- */
+:root {
+  --umured: #C1272D;
+  --umured-light: #d94a4f;
+  --umured-bg: #fef2f2;
+  --umuteal: #1B4F5C;
+  --umutealdark: #0F2E36;
+  --umuteallight: #2A7A8C;
+  --umuteallight-bg: #e8f4f8;
+  --umugray: #F2F2F2;
+  --umugraymed: #E0E0E0;
+  --umuwhite: #FFFFFF;
+  --umutextdark: #1A1A2E;
+  --umutextmed: #4A4A6A;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--umutextdark);
+  background: var(--umuwhite);
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--umuteallight);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--umured);
+}
+
+/* --- Header / Navbar --- */
+.navbar {
+  background: var(--umutealdark);
+  padding: 0.6rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.navbar-logo img {
+  height: 42px;
+}
+
+.navbar-title {
+  color: var(--umuwhite);
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.navbar-links a {
+  color: var(--umugraymed);
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  background: rgba(255,255,255,0.12);
+  color: var(--umuwhite);
+}
+
+/* --- Hero Section (index) --- */
+.hero {
+  background: linear-gradient(135deg, var(--umutealdark) 0%, var(--umuteal) 100%);
+  color: var(--umuwhite);
+  padding: 4rem 2rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 350px;
+  height: 350px;
+  background: var(--umuteallight);
+  opacity: 0.12;
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 250px;
+  height: 250px;
+  background: var(--umured);
+  opacity: 0.08;
+  border-radius: 50%;
+}
+
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.hero .subtitle {
+  font-size: 1.15rem;
+  color: var(--umugraymed);
+  margin-bottom: 0.3rem;
+}
+
+.hero .meta {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.5rem;
+}
+
+.hero .meta strong {
+  color: var(--umuwhite);
+}
+
+.hero-divider {
+  width: 80px;
+  height: 3px;
+  background: var(--umured);
+  margin: 1.2rem auto;
+}
+
+/* --- Task Cards Grid (index) --- */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  color: var(--umuteal);
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--umutextmed);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.task-card {
+  background: var(--umuwhite);
+  border: 1px solid var(--umugraymed);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--umured);
+}
+
+.task-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--umuteallight);
+}
+
+.task-card .task-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--umured);
+  color: var(--umuwhite);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 50%;
+  margin-bottom: 0.8rem;
+}
+
+.task-card h3 {
+  font-size: 1.15rem;
+  color: var(--umuteal);
+  margin-bottom: 0.4rem;
+}
+
+.task-card .tool-badge {
+  display: inline-block;
+  background: var(--umuteallight-bg);
+  color: var(--umuteallight);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-bottom: 0.6rem;
+}
+
+.task-card p {
+  font-size: 0.9rem;
+  color: var(--umutextmed);
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.task-card .difficulty {
+  font-size: 0.8rem;
+  color: var(--umutextmed);
+  margin-bottom: 0.8rem;
+}
+
+.task-card .difficulty .star-filled {
+  color: var(--umured);
+}
+
+.task-card .btn {
+  display: inline-block;
+  text-align: center;
+  padding: 0.55rem 1.2rem;
+  background: var(--umuteal);
+  color: var(--umuwhite);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.task-card .btn:hover {
+  background: var(--umuteallight);
+  color: var(--umuwhite);
+}
+
+/* --- Page Header (task pages) --- */
+.page-header {
+  background: linear-gradient(135deg, var(--umutealdark) 0%, var(--umuteal) 100%);
+  color: var(--umuwhite);
+  padding: 2.5rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: var(--umuteallight);
+  opacity: 0.1;
+  border-radius: 50%;
+}
+
+.page-header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-header .breadcrumb {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.6rem;
+}
+
+.page-header .breadcrumb a {
+  color: rgba(255,255,255,0.7);
+}
+
+.page-header .breadcrumb a:hover {
+  color: var(--umuwhite);
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.page-header .page-meta {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.88rem;
+  color: var(--umugraymed);
+  flex-wrap: wrap;
+}
+
+.page-header .page-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* --- Guide Content --- */
+.guide-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+.guide-content h2 {
+  font-size: 1.4rem;
+  color: var(--umuteal);
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--umured);
+  display: inline-block;
+}
+
+.guide-content h3 {
+  font-size: 1.1rem;
+  color: var(--umuteal);
+  margin-top: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.guide-content p {
+  margin-bottom: 1rem;
+  color: var(--umutextdark);
+}
+
+.guide-content ul, .guide-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.guide-content li {
+  margin-bottom: 0.4rem;
+}
+
+/* --- Step boxes --- */
+.step {
+  background: var(--umuwhite);
+  border: 1px solid var(--umugraymed);
+  border-left: 4px solid var(--umuteal);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--umuteal);
+  color: var(--umuwhite);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  margin-right: 0.6rem;
+  flex-shrink: 0;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.step-header h4 {
+  font-size: 1.05rem;
+  color: var(--umuteal);
+}
+
+.step p {
+  margin-bottom: 0.5rem;
+  margin-left: 2.5rem;
+}
+
+.step ul {
+  margin-left: 2.5rem;
+}
+
+/* --- Screenshot placeholder --- */
+.screenshot-placeholder {
+  background: var(--umugray);
+  border: 2px dashed var(--umugraymed);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  margin: 1.2rem 0;
+  color: var(--umutextmed);
+  font-size: 0.88rem;
+}
+
+.screenshot-placeholder .icon {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+  opacity: 0.5;
+}
+
+.screenshot-placeholder .label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--umuteal);
+}
+
+/* Actual screenshot images */
+.screenshot {
+  display: block;
+  margin: 1.2rem auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--umugraymed);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+}
+
+/* Screenshot figures with caption */
+figure.screenshot-img {
+  margin: 1.4rem 0;
+  text-align: center;
+}
+
+figure.screenshot-img img {
+  display: block;
+  max-width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--umugraymed);
+  box-shadow: var(--shadow-sm);
+  margin: 0 auto;
+}
+
+figure.screenshot-img figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--umutextmed);
+  font-style: italic;
+}
+
+/* --- Info boxes --- */
+.info-box {
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin: 1.2rem 0;
+  font-size: 0.92rem;
+}
+
+.info-box.tip {
+  background: var(--umuteallight-bg);
+  border-left: 4px solid var(--umuteallight);
+}
+
+.info-box.warning {
+  background: #fff8e1;
+  border-left: 4px solid #f9a825;
+}
+
+.info-box.important {
+  background: var(--umured-bg);
+  border-left: 4px solid var(--umured);
+}
+
+.info-box.note {
+  background: var(--umugray);
+  border-left: 4px solid var(--umuteal);
+}
+
+.info-box strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+/* --- Code blocks --- */
+.code-block {
+  background: var(--umutealdark);
+  color: #e0e0e0;
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin: 1rem 0;
+  font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.code-block .comment {
+  color: #6a9955;
+}
+
+.code-block .string {
+  color: #ce9178;
+}
+
+.code-block .keyword {
+  color: #569cd6;
+}
+
+/* --- Comparison table --- */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.9rem;
+}
+
+.comparison-table th {
+  background: var(--umuteal);
+  color: var(--umuwhite);
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.comparison-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--umugraymed);
+}
+
+.comparison-table tr:nth-child(even) {
+  background: var(--umugray);
+}
+
+.comparison-table tr:hover {
+  background: var(--umuteallight-bg);
+}
+
+/* --- Footer --- */
+.footer {
+  background: var(--umutealdark);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 0.85rem;
+}
+
+.footer a {
+  color: rgba(255,255,255,0.8);
+}
+
+.footer strong {
+  color: var(--umuwhite);
+}
+
+/* --- Task navigation at bottom of guide pages --- */
+.task-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--umugraymed);
+}
+
+.task-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.2rem;
+  background: var(--umugray);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--umuteal);
+  transition: all 0.2s;
+}
+
+.task-nav a:hover {
+  background: var(--umuteallight-bg);
+  color: var(--umuteallight);
+}
+
+/* --- Quick access box --- */
+.quick-access {
+  background: var(--umugray);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+}
+
+.quick-access h3 {
+  color: var(--umuteal);
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.quick-access ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-access li {
+  margin-bottom: 0.3rem;
+}
+
+.quick-access a {
+  font-size: 0.9rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .navbar-inner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbar-links {
+    justify-content: center;
+  }
+
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .guide-content {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .step p, .step ul {
+    margin-left: 0;
+  }
+
+  .task-nav {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-links a {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .hero {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+}
