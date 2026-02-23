@@ -182,6 +182,47 @@ a:hover {
   margin: 1.2rem auto;
 }
 
+.hero-actions {
+  margin-top: 1.5rem;
+}
+
+.btn-hero {
+  display: inline-block;
+  background: var(--umured);
+  color: var(--umuwhite) !important;
+  padding: 0.75rem 1.8rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.btn-hero:hover {
+  background: #a12025;
+  transform: translateY(-1px);
+}
+
+.hero-qr {
+  margin-top: 1.8rem;
+}
+
+.hero-qr img {
+  width: 150px;
+  height: 150px;
+  border-radius: var(--radius);
+  background: var(--umuwhite);
+  padding: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.qr-label {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  margin-top: 0.4rem;
+}
+
 /* --- Task Cards Grid (index) --- */
 .section {
   max-width: 1100px;
