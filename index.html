@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Economía Española | Panorama Interactivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <nav class="navbar container">
+      <div class="brand">Economía<span>ES</span></div>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <ul class="nav-links">
+        <li><a href="#datos">Datos</a></li>
+        <li><a href="#graficos">Comparador</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content container">
+      <p class="eyebrow">Análisis macroeconómico de España</p>
+      <h1>Comprende la evolución de la economía española entre 2005 y 2025</h1>
+      <p>
+        Consulta indicadores clave con datos anuales, compara variables en un mismo gráfico interactivo
+        y encuentra respuestas rápidas sobre PIB, desempleo e inflación.
+      </p>
+      <a class="btn-primary" href="#graficos">Ir al comparador</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container" id="datos">
+      <div class="section-heading">
+        <h2>Datos económicos de España (2005-2025)</h2>
+        <p>PIB nominal, tasa de desempleo e inflación anual para análisis histórico y comparado.</p>
+      </div>
+
+      <div class="cards-grid" id="statsCards"></div>
+
+      <div class="table-tools">
+        <div>
+          <label for="yearSearch">Buscar por año</label>
+          <input type="search" id="yearSearch" placeholder="Ej: 2020" />
+        </div>
+        <div>
+          <label for="inflationFilter">Filtrar inflación</label>
+          <select id="inflationFilter">
+            <option value="all">Todas</option>
+            <option value="positive">Positiva</option>
+            <option value="negative">Negativa</option>
+          </select>
+        </div>
+        <div>
+          <label for="sortBy">Ordenar por</label>
+          <select id="sortBy">
+            <option value="year">Año</option>
+            <option value="gdp">PIB</option>
+            <option value="unemployment">Desempleo</option>
+            <option value="inflation">Inflación</option>
+          </select>
+        </div>
+        <div>
+          <label for="sortDir">Dirección</label>
+          <select id="sortDir">
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Año</th>
+              <th>PIB (miles de millones €)</th>
+              <th>Desempleo (%)</th>
+              <th>Inflación (%)</th>
+            </tr>
+          </thead>
+          <tbody id="dataTableBody"></tbody>
+        </table>
+      </div>
+      <p class="source-note">
+        Fuentes de referencia: INE, Eurostat y Banco Mundial (series armonizadas); 2025 con dato provisional/estimado.
+      </p>
+    </section>
+
+    <section class="section section-alt" id="graficos">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Comparador de indicadores</h2>
+          <p>Selecciona dos indicadores para verlos superpuestos en un mismo gráfico (doble eje Y).</p>
+        </div>
+
+        <div class="comparator-controls">
+          <div>
+            <label for="metricA">Indicador A</label>
+            <select id="metricA"></select>
+          </div>
+          <div>
+            <label for="metricB">Indicador B</label>
+            <select id="metricB"></select>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div id="chartArea" class="chart-area" aria-live="polite"></div>
+          <p class="chart-note">Pasa el ratón o toca un punto para ver los valores por año.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="faq">
+      <div class="section-heading">
+        <h2>Preguntas frecuentes</h2>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>¿Qué indicador refleja mejor la salud económica general?</summary>
+          <p>La lectura conjunta es más útil: PIB (actividad), desempleo (mercado laboral) e inflación (precios).</p>
+        </details>
+        <details>
+          <summary>¿Por qué hay años con inflación negativa?</summary>
+          <p>Puede ocurrir en periodos de demanda débil o caídas fuertes en energía y materias primas.</p>
+        </details>
+        <details>
+          <summary>¿Cómo interpretar el comparador de doble eje?</summary>
+          <p>Cada indicador usa su propia escala en cada lateral para facilitar comparación de tendencia, no de magnitud absoluta.</p>
+        </details>
+        <details>
+          <summary>¿Estos datos pueden variar en el tiempo?</summary>
+          <p>Sí, los institutos estadísticos revisan series históricas periódicamente y publican actualizaciones.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="contacto">
+      <div class="container contact-wrap">
+        <div>
+          <h2>Contacto</h2>
+          <p>¿Tienes dudas o sugerencias? Escríbenos y te responderemos lo antes posible.</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" required />
+
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" required />
+
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit" class="btn-primary">Enviar mensaje</button>
+          <p id="formFeedback" class="form-feedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 EconomíaES · Visualización educativa sobre economía española.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

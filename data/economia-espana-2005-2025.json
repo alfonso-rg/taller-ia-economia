@@ -1,0 +1,23 @@
+[
+  {"year":2005,"gdp":937.0,"unemployment":9.2,"inflation":3.4},
+  {"year":2006,"gdp":1011.0,"unemployment":8.5,"inflation":3.5},
+  {"year":2007,"gdp":1080.8,"unemployment":8.2,"inflation":2.8},
+  {"year":2008,"gdp":1116.2,"unemployment":11.3,"inflation":4.1},
+  {"year":2009,"gdp":1080.9,"unemployment":17.9,"inflation":-0.2},
+  {"year":2010,"gdp":1080.9,"unemployment":19.9,"inflation":2.0},
+  {"year":2011,"gdp":1076.9,"unemployment":21.4,"inflation":3.1},
+  {"year":2012,"gdp":1041.2,"unemployment":24.8,"inflation":2.4},
+  {"year":2013,"gdp":1029.2,"unemployment":26.1,"inflation":1.5},
+  {"year":2014,"gdp":1041.6,"unemployment":24.4,"inflation":-0.2},
+  {"year":2015,"gdp":1081.2,"unemployment":22.1,"inflation":-0.5},
+  {"year":2016,"gdp":1118.5,"unemployment":19.6,"inflation":-0.2},
+  {"year":2017,"gdp":1167.0,"unemployment":17.2,"inflation":2.0},
+  {"year":2018,"gdp":1210.1,"unemployment":15.3,"inflation":1.7},
+  {"year":2019,"gdp":1245.3,"unemployment":14.1,"inflation":0.8},
+  {"year":2020,"gdp":1121.9,"unemployment":15.5,"inflation":-0.3},
+  {"year":2021,"gdp":1206.8,"unemployment":14.8,"inflation":3.1},
+  {"year":2022,"gdp":1328.9,"unemployment":12.9,"inflation":8.4},
+  {"year":2023,"gdp":1391.2,"unemployment":12.1,"inflation":3.5},
+  {"year":2024,"gdp":1454.0,"unemployment":11.6,"inflation":2.8},
+  {"year":2025,"gdp":1498.0,"unemployment":11.3,"inflation":2.5}
+]
