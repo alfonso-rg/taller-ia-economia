@@ -156,30 +156,10 @@
     </div>
   </div>
 
-  <!-- Paso 2 -->
-  <div class="step">
-    <div class="step-header">
-      <span class="step-number">2</span>
-      <h4>Revisa los modelos disponibles y configura un límite de gasto</h4>
-    </div>
-    <p>
-      Antes de empezar, configura un límite de gasto mensual para evitar sorpresas:
-    </p>
-    <ol>
-      <li>En el panel de OpenAI, ve a <strong>«Settings»</strong> → <strong>«Limits»</strong></li>
-      <li>Configura un <strong>límite de gasto mensual</strong> (ej: 5 € o 10 €)</li>
-      <li>Revisa los modelos disponibles: nosotros usaremos <strong>GPT-4o mini</strong> por su excelente relación calidad/precio</li>
-    </ol>
-
-    <figure class="screenshot-img">
-      <img src="capturas/t6-p2-openai-modelos.png" alt="Modelos disponibles y límite de gasto en OpenAI">
-      <figcaption>OpenAI Platform — modelos disponibles y panel de límite de gasto mensual</figcaption>
-    </figure>
-  </div>
-
+  
   <h3>Parte B: Crear el repositorio en GitHub</h3>
 
-  <!-- Paso 3 -->
+  <!-- Paso 2 -->
   <div class="step">
     <div class="step-header">
       <span class="step-number">3</span>
@@ -204,10 +184,10 @@
 
   <h3>Parte C: Vibe coding de la aplicación</h3>
 
-  <!-- Paso 4 -->
+  <!-- Paso 3 -->
   <div class="step">
     <div class="step-header">
-      <span class="step-number">4</span>
+      <span class="step-number">3</span>
       <h4>Genera la app completa con Claude Code o Codex</h4>
     </div>
     <p>
@@ -257,58 +237,22 @@ b) Carga de archivo CSV: el usuario sube un CSV
 
     <figure class="screenshot-img">
       <img src="capturas/t6-p4-vibe-coding-app.png" alt="Claude Code generando la aplicación Flask">
-      <figcaption>Claude Code — generando los archivos de la aplicación Flask con chatbot y analizador</figcaption>
+      <figcaption>Codex — generando los archivos de la aplicación Flask con chatbot y analizador</figcaption>
     </figure>
 
     <div class="info-box tip">
       <strong>&#128161; Itera hasta que funcione</strong>
-      Una vez generado el código, pide a Claude Code que instale las dependencias y arranque el servidor
-      en local para comprobar que funciona: <code>pip install -r requirements.txt</code> y
-      <code>flask run</code>. Corrige cualquier problema antes de subir a GitHub.
+      Una vez generado el código, pide a Codex o a Claude Code que verifique que todo funciona y haga los ajustes necesarios.
     </div>
   </div>
 
-  <!-- Paso 5 -->
-  <div class="step">
-    <div class="step-header">
-      <span class="step-number">5</span>
-      <h4>Prueba la app en local y sube el código a GitHub</h4>
-    </div>
-    <p>
-      Antes de desplegar, verifica que todo funciona correctamente en tu máquina:
-    </p>
-    <ol>
-      <li>Exporta tu API key como variable de entorno temporal:
-        <div class="code-block">
-<span class="comment"># En Windows (PowerShell):</span>
-$env:OPENAI_API_KEY = "sk-..."
-
-<span class="comment"># En Mac/Linux:</span>
-export OPENAI_API_KEY="sk-..."
-        </div>
-      </li>
-      <li>Arranca el servidor: <code>flask run</code> o <code>python app.py</code></li>
-      <li>Abre <strong>http://localhost:5000</strong> y prueba ambas herramientas</li>
-      <li>Si todo funciona, pide a Claude Code que haga el commit y lo suba a GitHub</li>
-    </ol>
-
-    <figure class="screenshot-img">
-      <img src="capturas/t6-p5-app-local.png" alt="Aplicación Flask funcionando en local con las dos herramientas">
-      <figcaption>App en local — chatbot y analizador de sentimientos funcionando en <code>localhost:5000</code></figcaption>
-    </figure>
-
-    <figure class="screenshot-img">
-      <img src="capturas/t6-p5b-analizador-csv.png" alt="Analizador de sentimientos con subida de CSV">
-      <figcaption>Analizador de sentimientos — resultado de procesar un CSV con varias frases económicas</figcaption>
-    </figure>
-  </div>
-
+ 
   <h3>Parte D: Despliegue en Render</h3>
 
-  <!-- Paso 6 -->
+  <!-- Paso 4 -->
   <div class="step">
     <div class="step-header">
-      <span class="step-number">6</span>
+      <span class="step-number">4</span>
       <h4>Crea un servicio web en Render</h4>
     </div>
     <p>
@@ -349,10 +293,10 @@ export OPENAI_API_KEY="sk-..."
     </div>
   </div>
 
-  <!-- Paso 7 -->
+  <!-- Paso 5 -->
   <div class="step">
     <div class="step-header">
-      <span class="step-number">7</span>
+      <span class="step-number">5</span>
       <h4>Verifica el despliegue y obtén la URL pública</h4>
     </div>
     <p>
